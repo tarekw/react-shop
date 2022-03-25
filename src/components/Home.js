@@ -4,15 +4,19 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Modal from "react-bootstrap/Modal";
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 
+import { CartContext } from "../contexts/cart";
 import "./home.css";
 
 import { getAllCategories, getInCategory } from "../services/catalog";
 
 const ALL_PRODUCTS = "All";
 
-export const Home = () => {
+export const Home = ({ setCart=f=>f }) => {
+  const cart = React.useContext(CartContext);
+
   const [categories, setCategories] = useState([]);
   const [selected, setSelected] = useState(0);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -38,6 +42,7 @@ export const Home = () => {
     if (categories.length) {
       fetchData();
     }
+
   }, [selected, categories]);
 
   const selectItem = (index) => {
@@ -46,8 +51,24 @@ export const Home = () => {
     setShow(true);
   };
 
+  const addItem = (itemId) => {
+    console.log('adding item ', itemId);
+    const newCart = [...cart];
+    newCart.push(itemId);
+    setCart(newCart);
+  };
+  
+  const removeItem = (itemId) => {
+    const index = cart.indexOf(itemId);
+    if (index !== -1) {
+      const newCart = [...cart];
+      newCart.splice(index, 1)
+      setCart(newCart);
+    }
+  };
+
   return (
-    <div className="d-flex flex-row">
+    <div className="d-flex flex-row justify-content-center">
       <ListGroup as="ul">
         {categories.map((item, index) => (
           <ListGroup.Item
@@ -60,7 +81,7 @@ export const Home = () => {
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <Container>
+      <Container fluid="sm" style={{ margin: 0 }}>
         <Row>
           {category.map((item, index) => (
             <Card
@@ -84,14 +105,17 @@ export const Home = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            {category[selectedItem]?.title}
+            {`${category[selectedItem]?.title} (£${category[selectedItem]?.price}) `}
+            <Button variant="outline-success" onClick={() => addItem(category[selectedItem]?.id)}>Add to cart</Button>&nbsp;
+            <Button variant="outline-danger" onClick={() => removeItem(category[selectedItem]?.id)}>Remove cart</Button>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Image src={category[selectedItem]?.image} thumbnail />
-          <p>{category[selectedItem]?.description}</p>
+          <p>{`Rating: ${category[selectedItem]?.rating?.rate} / Total: ${category[selectedItem]?.rating?.count}`}</p>
+          <h4>{category[selectedItem]?.description}</h4>
         </Modal.Body>
-      </Modal>{" "}
+      </Modal>
     </div>
   );
 };

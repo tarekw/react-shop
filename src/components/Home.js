@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
@@ -13,7 +13,7 @@ import Items from "../ui/Items";
 import "./home.css";
 
 export const Home = () => {
-  const dispatch = React.useContext(ShopContext);
+  const dispatch = useContext(ShopContext);
 
   const [categories, setCategories] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items should match snapshot 1`] = `
+<div
+  className="container-sm"
+  style={
+    Object {
+      "margin": 0,
+    }
+  }
+>
+  <div
+    className="row"
+  >
+    <div
+      className="cardItem card"
+      onClick={[Function]}
+      style={
+        Object {
+          "width": "10rem",
+        }
+      }
+    >
+      <img
+        className="card-img-top"
+        src="https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+      />
+      <div
+        className="card-body"
+      >
+        <p
+          className="card-text"
+        >
+          WD 2TB Elements Portable External Hard Drive - USB 3.0 
+        </p>
+      </div>
+    </div>
+    <div
+      className="cardItem card"
+      onClick={[Function]}
+      style={
+        Object {
+          "width": "10rem",
+        }
+      }
+    >
+      <img
+        className="card-img-top"
+        src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+      />
+      <div
+        className="card-body"
+      >
+        <p
+          className="card-text"
+        >
+          SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

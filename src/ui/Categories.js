@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 export const Categories = ({
   categories,
-  selectedIndex,
+  selectedIndex = 0,
   setSelectedIndex = (f) => f,
 }) => (
   <ListGroup as="ul">

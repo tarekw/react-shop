@@ -16,7 +16,7 @@ const initialState = {
   token: null,
 };
 
-function reducer(state, action) {
+export const reducer = (state, action) => {
   const newState = Object.assign({}, state);
   switch (action.type) {
     case reducerTypes.ADD_TO_CART:

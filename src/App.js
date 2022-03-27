@@ -1,13 +1,14 @@
-import "./App.css";
 import { useReducer } from "react";
-import { Home } from "./components/Home";
-import { Login } from "./components/Login";
+
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 
+import { Home } from "./components/Home";
+import { Login } from "./components/Login";
 import { ShopContext } from "./contexts/shop";
 import { reducerTypes } from "./constants";
 
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const initialState = {

@@ -7,11 +7,15 @@ import { Container } from "react-bootstrap";
 
 import { authenticate } from "../services/login";
 import { ShopContext } from "../contexts/shop";
+import { reducerTypes } from "../constants";
+
 
 export const Login = () => {
   const dispatch = React.useContext(ShopContext);
+
   const userEl = useRef(null);
   const passwordEl = useRef(null);
+
   const [error, setError] = useState(false);
 
   const handleLogin = async (e) => {
@@ -23,7 +27,7 @@ export const Login = () => {
       );
       setError(false);
       dispatch({
-        type: "setToken",
+        type: reducerTypes.SET_TOKEN,
         payload: response.data.token,
       });
     } catch (err) {

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
 import { ShopContext } from "../contexts/shop";
-import { ALL_PRODUCTS, reducerTypes } from "../constants"
+import { ALL_PRODUCTS, reducerTypes } from "../constants";
 import { getAllCategories, getInCategory } from "../services/catalog";
+import { Categories } from "../ui/Categories";
+import { Items } from "../ui/Items";
 
 import "./home.css";
 
@@ -17,7 +16,7 @@ export const Home = () => {
   const dispatch = React.useContext(ShopContext);
 
   const [categories, setCategories] = useState([]);
-  const [selected, setSelected] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedItem, setSelectedItem] = useState(0);
   const [category, setCategory] = useState([]);
   const [show, setShow] = useState(false);
@@ -33,14 +32,14 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getInCategory(categories[selected]);
+      const result = await getInCategory(categories[selectedIndex]);
       setCategory(result.data);
     };
 
     if (categories.length) {
       fetchData();
     }
-  }, [selected, categories]);
+  }, [selectedIndex, categories]);
 
   const selectItem = (index) => {
     setSelectedItem(index);
@@ -49,34 +48,12 @@ export const Home = () => {
 
   return (
     <div className="d-flex flex-row justify-content-center">
-      <ListGroup as="ul">
-        {categories.map((item, index) => (
-          <ListGroup.Item
-            onClick={() => {
-              setSelected(index);
-            }}
-            active={selected === index}
-          >
-            {item}
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-      <Container fluid="sm" style={{ margin: 0 }}>
-        <Row>
-          {category.map((item, index) => (
-            <Card
-              style={{ width: "10rem" }}
-              className="cardItem"
-              onClick={() => selectItem(index)}
-            >
-              <Card.Img variant="top" src={item.image} />
-              <Card.Body>
-                <Card.Text>{item.title}</Card.Text>
-              </Card.Body>
-            </Card>
-          ))}
-        </Row>
-      </Container>
+      <Categories
+        categories={categories}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
+      <Items category={category} selectItem={selectItem} />
       <Modal
         show={show}
         onHide={() => setShow(false)}

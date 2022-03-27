@@ -7,8 +7,8 @@ import Button from "react-bootstrap/Button";
 import { ShopContext } from "../contexts/shop";
 import { ALL_PRODUCTS, reducerTypes } from "../constants";
 import { getAllCategories, getInCategory } from "../services/catalog";
-import { Categories } from "../ui/Categories";
-import { Items } from "../ui/Items";
+import Categories from "../ui/Categories";
+import Items from "../ui/Items";
 
 import "./home.css";
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 import ListGroup from "react-bootstrap/ListGroup";
 
 export const Categories = ({
@@ -19,3 +21,5 @@ export const Categories = ({
     ))}
   </ListGroup>
 );
+
+export default React.memo(Categories);

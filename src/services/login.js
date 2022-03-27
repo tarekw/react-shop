@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://fakestoreapi.com";
+import { BASE_URL } from "../constants";
 
 const API_URL = "auth";
 

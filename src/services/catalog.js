@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://fakestoreapi.com";
+import { BASE_URL, ALL_PRODUCTS } from "../constants";
 
 const API_URL = "products";
 
@@ -13,8 +13,7 @@ export const getAllCategories = () => {
 };
 
 export const getInCategory = (category) => {
-  console.log('getInCategory -------- ', category)
-  if (category === 'All') {
+  if (category === ALL_PRODUCTS) {
     return getAllProducts();
   }
   return axios.get(`${BASE_URL}/${API_URL}/category/${category}`);

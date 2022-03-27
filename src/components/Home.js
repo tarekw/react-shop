@@ -4,18 +4,17 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Modal from "react-bootstrap/Modal";
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 
-import { CartContext } from "../contexts/cart";
-import "./home.css";
-
+import { ShopContext } from "../contexts/shop";
+import { ALL_PRODUCTS, reducerTypes } from "../constants"
 import { getAllCategories, getInCategory } from "../services/catalog";
 
-const ALL_PRODUCTS = "All";
+import "./home.css";
 
-export const Home = ({ setCart=f=>f }) => {
-  const cart = React.useContext(CartContext);
+export const Home = () => {
+  const dispatch = React.useContext(ShopContext);
 
   const [categories, setCategories] = useState([]);
   const [selected, setSelected] = useState(0);
@@ -35,36 +34,17 @@ export const Home = ({ setCart=f=>f }) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await getInCategory(categories[selected]);
-      console.log("cat data >>>> ", result);
       setCategory(result.data);
     };
 
     if (categories.length) {
       fetchData();
     }
-
   }, [selected, categories]);
 
   const selectItem = (index) => {
     setSelectedItem(index);
-    console.log("item detail >>>>---- ", selectedItem);
     setShow(true);
-  };
-
-  const addItem = (itemId) => {
-    console.log('adding item ', itemId);
-    const newCart = [...cart];
-    newCart.push(itemId);
-    setCart(newCart);
-  };
-  
-  const removeItem = (itemId) => {
-    const index = cart.indexOf(itemId);
-    if (index !== -1) {
-      const newCart = [...cart];
-      newCart.splice(index, 1)
-      setCart(newCart);
-    }
   };
 
   return (
@@ -106,8 +86,29 @@ export const Home = ({ setCart=f=>f }) => {
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
             {`${category[selectedItem]?.title} (£${category[selectedItem]?.price}) `}
-            <Button variant="outline-success" onClick={() => addItem(category[selectedItem]?.id)}>Add to cart</Button>&nbsp;
-            <Button variant="outline-danger" onClick={() => removeItem(category[selectedItem]?.id)}>Remove cart</Button>
+            <Button
+              variant="outline-success"
+              onClick={() =>
+                dispatch({
+                  type: reducerTypes.ADD_TO_CART,
+                  payload: category[selectedItem]?.id,
+                })
+              }
+            >
+              Add to cart
+            </Button>
+            &nbsp;
+            <Button
+              variant="outline-danger"
+              onClick={() =>
+                dispatch({
+                  type: reducerTypes.REMOVE_FROM_CART,
+                  payload: category[selectedItem]?.id,
+                })
+              }
+            >
+              Remove cart
+            </Button>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

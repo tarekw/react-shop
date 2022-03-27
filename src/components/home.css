@@ -1,3 +1,7 @@
+.cardItem {
+  cursor: pointer;
+}
+
 .cardItem:hover {
   opacity: 0.5;
 }

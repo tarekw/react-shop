@@ -23,8 +23,12 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getAllCategories();
-      setCategories([ALL_PRODUCTS, ...result.data]);
+      try {
+        const result = await getAllCategories();
+        setCategories([ALL_PRODUCTS, ...result.data]);
+      } catch (error) {
+        console.log(`Error in getAllCategories: ${error}`);
+      }
     };
 
     fetchData();
@@ -32,8 +36,12 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getInCategory(categories[selectedIndex]);
-      setCategory(result.data);
+      try {
+        const result = await getInCategory(categories[selectedIndex]);
+        setCategory(result.data);
+      } catch (error) {
+        console.log(`Error in getInCategory: ${error}`);
+      }
     };
 
     if (categories.length) {

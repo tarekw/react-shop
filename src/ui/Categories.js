@@ -15,6 +15,7 @@ export const Categories = ({
         }}
         active={selectedIndex === index}
         key={index} // shouldn't use index as keys, but we don't intend to change the order of items here
+        style={{cursor: "pointer"}}
       >
         {item}
       </ListGroup.Item>

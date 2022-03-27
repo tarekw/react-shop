@@ -9,18 +9,19 @@ import { authenticate } from "../services/login";
 import { ShopContext } from "../contexts/shop";
 import { reducerTypes } from "../constants";
 
-
 export const Login = () => {
   const dispatch = React.useContext(ShopContext);
 
   const userEl = useRef(null);
   const passwordEl = useRef(null);
+  const submitEl = useRef(null);
 
   const [error, setError] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      submitEl.current.setAttribute("disabled", true);
       const response = await authenticate(
         userEl.current.value,
         passwordEl.current.value
@@ -32,6 +33,7 @@ export const Login = () => {
       });
     } catch (err) {
       console.log(err);
+      submitEl.current.removeAttribute("disabled");
       setError(true);
     }
   };
@@ -65,7 +67,7 @@ export const Login = () => {
             />
           </Col>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" ref={submitEl}>
           Sign In
         </Button>
       </Form>

@@ -1,4 +1,4 @@
-# A small react application to simulate a shop catelog
+# A small react application to simulate a shop catalog
 
 Upon entering the site, the user is presented with a login screen. The data for the site is coming from https://fakestoreapi.com/docs and the user can log in using the publicly available credentials (username: `mor_2314` password `83r5^_`). Since the other REST apis don't require an actual token to be added to the requests, for the sake of this demo we are only using the token to sign in and switch the user from the login to the home page displaying the catalog.
 

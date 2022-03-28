@@ -1,5 +1,3 @@
-/* eslint-disable  testing-library/no-wait-for-multiple-assertions */
-
 import React from "react";
 import axios from "axios";
 import renderer from "react-test-renderer";

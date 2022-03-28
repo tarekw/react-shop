@@ -1,3 +1,4 @@
+import React from "react";
 import renderer from "react-test-renderer";
 
 import { reducerTypes } from "./constants";
@@ -29,7 +30,7 @@ describe("App", () => {
     });
 
     it("should remove from cart properly", () => {
-      initialState.cart = [2]
+      initialState.cart = [2];
       let ret = reducer(initialState, {
         type: reducerTypes.REMOVE_FROM_CART,
         payload: 2,

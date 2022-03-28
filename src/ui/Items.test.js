@@ -1,3 +1,4 @@
+import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
@@ -47,8 +48,10 @@ describe("Items", () => {
   });
 
   it("should handle item selection", () => {
-    const wrapper = shallow(<Items category={category} selectItem={selectItem} />);
-    wrapper.find(Card).last().simulate("click")
+    const wrapper = shallow(
+      <Items category={category} selectItem={selectItem} />
+    );
+    wrapper.find(Card).last().simulate("click");
     expect(selectItem).toHaveBeenCalledTimes(1);
     expect(selectItem).toHaveBeenCalledWith(1);
   });

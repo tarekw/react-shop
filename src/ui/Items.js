@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -23,5 +24,10 @@ export const Items = ({ category, selectItem = (f) => f }) => (
     </Row>
   </Container>
 );
+
+Items.propTypes = {
+  category: PropTypes.array,
+  selectItem: PropTypes.func,
+};
 
 export default React.memo(Items);

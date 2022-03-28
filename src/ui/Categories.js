@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import ListGroup from "react-bootstrap/ListGroup";
 
@@ -15,12 +16,18 @@ export const Categories = ({
         }}
         active={selectedIndex === index}
         key={index} // shouldn't use index as keys, but we don't intend to change the order of items here
-        style={{cursor: "pointer"}}
+        style={{ cursor: "pointer" }}
       >
         {item}
       </ListGroup.Item>
     ))}
   </ListGroup>
 );
+
+Categories.propTypes = {
+  categories: PropTypes.array,
+  selectedIndex: PropTypes.number,
+  setSelectedIndex: PropTypes.func,
+};
 
 export default React.memo(Categories);

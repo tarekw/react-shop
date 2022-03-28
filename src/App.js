@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -22,7 +22,7 @@ export const reducer = (state, action) => {
     case reducerTypes.ADD_TO_CART:
       newState.cart = [action.payload, ...state.cart];
       return newState;
-    case reducerTypes.REMOVE_FROM_CART:
+    case reducerTypes.REMOVE_FROM_CART: {
       const index = state.cart.indexOf(action.payload);
       const newCart = [...state.cart];
       if (index !== -1) {
@@ -30,13 +30,14 @@ export const reducer = (state, action) => {
         newState.cart = newCart;
       }
       return newState;
+    }
     case reducerTypes.SET_TOKEN:
       newState.token = action.payload;
       return newState;
     default:
       throw new Error();
   }
-}
+};
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);

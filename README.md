@@ -29,3 +29,8 @@ In the project directory, you can run:
 ### Home
 
 <img width="712" alt="Screenshot 2022-03-28 at 13 14 43" src="https://user-images.githubusercontent.com/1178216/160395856-96786623-189b-4573-a5c6-b6c409848762.png">
+
+### Product detail
+
+<img width="763" alt="Screenshot 2022-03-28 at 13 57 50" src="https://user-images.githubusercontent.com/1178216/160402866-1af58c4f-726e-4037-bab1-0814e4f72e7c.png">
+

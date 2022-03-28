@@ -20,3 +20,12 @@ In the project directory, you can run:
 - The number of current items contained in the cart should be visible on the category and product list screen at all times and reflect the underlying state ✅
 - The cart screen does not need to be navigated to for this task ✅
 - Appropriate tests should be added, using the jest framework. We aren’t expecting full test coverage. ✅
+
+## Screenshots
+
+### Login
+<img width="646" alt="Screenshot 2022-03-28 at 13 14 55" src="https://user-images.githubusercontent.com/1178216/160395780-fba90542-426c-42a1-96fe-7d064790936d.png">
+
+### Home
+
+<img width="712" alt="Screenshot 2022-03-28 at 13 14 43" src="https://user-images.githubusercontent.com/1178216/160395856-96786623-189b-4573-a5c6-b6c409848762.png">

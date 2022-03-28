@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# A small react application to simulate a shop catalog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Upon entering the site, the user is presented with a login screen. The data for the site is coming from https://fakestoreapi.com/docs and the user can log in using the publicly available credentials (username: `mor_2314` password `83r5^_`). Since the other REST apis don't require an actual token to be added to the requests, for the sake of this demo we are only using the token to sign in and switch the user from the login to the home page displaying the catalog.
+
+Please note that the demo server occasionally does not attach the `access-control-allow-origin: *` header to the responses which causes a `CORS` error in the browser. Usually reloading it automatically resolves the issue.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `yarn build`
+- A login form with validation and error handling, storing the response token on successful submission. ✅
+- On login - the app shows a list of all product categories. ✅
+- The user having the ability to drill down to a products list featuring all products from the selected category. ✅
+- Each product on the product list screen will feature an ‘Add to cart’ button and a ‘Remove from cart’ button. Each button should add /remove products from the state ✅
+- The number of current items contained in the cart should be visible on the category and product list screen at all times and reflect the underlying state ✅
+- The cart screen does not need to be navigated to for this task ✅
+- Appropriate tests should be added, using the jest framework. We aren’t expecting full test coverage. ✅
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Login
+<img width="646" alt="Screenshot 2022-03-28 at 13 14 55" src="https://user-images.githubusercontent.com/1178216/160395780-fba90542-426c-42a1-96fe-7d064790936d.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home
 
-### `yarn eject`
+<img width="712" alt="Screenshot 2022-03-28 at 13 14 43" src="https://user-images.githubusercontent.com/1178216/160395856-96786623-189b-4573-a5c6-b6c409848762.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Product detail
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="763" alt="Screenshot 2022-03-28 at 13 57 50" src="https://user-images.githubusercontent.com/1178216/160402866-1af58c4f-726e-4037-bab1-0814e4f72e7c.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

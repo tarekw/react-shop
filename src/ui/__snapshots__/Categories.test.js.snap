@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories should render properly 1`] = `
+<ul
+  className="list-group"
+  onKeyDown={[Function]}
+>
+  <div
+    className="list-group-item active"
+    data-rr-ui-event-key={null}
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    electronics
+  </div>
+  <div
+    className="list-group-item"
+    data-rr-ui-event-key={null}
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    jewelery
+  </div>
+  <div
+    className="list-group-item"
+    data-rr-ui-event-key={null}
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    men's clothing
+  </div>
+  <div
+    className="list-group-item"
+    data-rr-ui-event-key={null}
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    women's clothing
+  </div>
+</ul>
+`;

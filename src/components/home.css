@@ -1,0 +1,11 @@
+.cardItem {
+  cursor: pointer;
+}
+
+.cardItem:hover {
+  opacity: 0.5;
+}
+
+.modal-90w {
+    min-width: 90%;
+}

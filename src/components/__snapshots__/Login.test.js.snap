@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match snapshot 1`] = `
+<div
+  className="container-sm"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3 row"
+    >
+      <label
+        className="form-label col-form-label col-sm-2"
+      >
+        Username
+      </label>
+      <div
+        className="col-sm-10"
+      >
+        <input
+          className="form-control"
+          placeholder="Enter username"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="mb-3 row"
+    >
+      <label
+        className="form-label col-form-label col-sm-2"
+        htmlFor="formBasicPassword"
+      >
+        Password
+      </label>
+      <div
+        className="col-sm-10"
+      >
+        <input
+          className="form-control"
+          id="formBasicPassword"
+          placeholder="Password"
+          type="password"
+        />
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Sign In
+    </button>
+  </form>
+</div>
+`;

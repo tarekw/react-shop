@@ -4,6 +4,10 @@ Upon entering the site, the user is presented with a login screen. The data for 
 
 Please note that the demo server occasionally does not attach the `access-control-allow-origin: *` header to the responses which causes a `CORS` error in the browser. Usually reloading it automatically resolves the issue.
 
+### Deployment
+
+https://tarek-react-shop.herokuapp.com/
+
 ## Available Scripts
 
 In the project directory, you can run:
